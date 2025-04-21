@@ -37,11 +37,6 @@ const AboutP = styled.div`
     gap: 2rem;
 `
 
-const Img = styled.img`
-    max-width: 40rem;
-    height: auto;
-`
-
 const AboutHeader = () => {
     return (
         <HeadText>
@@ -54,7 +49,6 @@ const AboutHeader = () => {
                     </p> 
                 </AboutP>
             </HeadTitle>
-            <Img src="/images/mewithphone.png" alt="" />  
           </AboutTop>
           
           <AboutP>
