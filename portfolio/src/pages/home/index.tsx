@@ -29,6 +29,8 @@ const ProjectListComponent = styled.div`
 const ImgContainer = styled.section`
     height: 100vh;
     scroll-snap-align: start;
+    scroll-behavior: auto;
+    scroll-snap-type: y proximity;
     display: flex;
     justify-content: left;
     margin-left: 8rem;
@@ -78,7 +80,7 @@ function useParallax(value: MotionValue<number>, distance: number) {
 function Project({ id }: { id: number }) {
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({ target: ref });
-    const y = useParallax(scrollYProgress, 300);
+    const y = useParallax(scrollYProgress, 200);
 
     return (
         <ImgContainer className="img-container">
@@ -87,7 +89,7 @@ function Project({ id }: { id: number }) {
                 <ProjectList />
             </ImgContainerDiv>
             <H2 initial={{ visibility: "hidden" }} animate={{ visibility: "visible" }} style={{ y }}>
-                {`#00${id}`}
+                {`#${id}`}
             </H2>
         </ImgContainer>
     );
@@ -129,7 +131,7 @@ function StyleSheet() {
     return (
         <style>{`
         html {
-            scroll-snap-type: y proximity;
+            scroll-snap-type: y mandatory;
         }
     `}</style>
     )
