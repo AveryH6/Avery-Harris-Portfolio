@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+:root {
+    --ah-white: #F5EFF0;
+    --ah-babypink: #FFBFB4;
+    --ah-pink: #FB8E7C;
+    --ah-babyyellow: #FFE1AB;
+    --ah-yellow: #F7B151;
+    --ah-darkgrey: #1E1E1E;
+  
+}
+  
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    color: var(--ah-white);
+}
+
+body {
+    background: linear-gradient(100deg, black 0%, var(--ah-pink) 100%);
+}

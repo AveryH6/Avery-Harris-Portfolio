@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import styled from "styled-components";
 import ProjectList from "./-components/ProjectList";
 import Sparkles from "./-components/Sparkles";

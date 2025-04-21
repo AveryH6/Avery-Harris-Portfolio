@@ -2,11 +2,11 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import styled from 'styled-components';
 import './styles/App.css';
-import Navbar from './components/Navbar';
+import Navbar from '../../avery-harris-portfolio/src/components/Navbar';
 import Home from './pages/home';
 import About from './pages/about';
 import Contact from './pages/contact';
-import Footer from './components/Footer';
+import Footer from '../../avery-harris-portfolio/src/components/Footer';
 
 const AppContainer = styled.div`
   display: flex;
