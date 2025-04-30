@@ -16,6 +16,7 @@ const Header = styled.div`
     flex-direction: row;
     justify-content: space-between;
     margin: 4rem;
+    scroll-snap-align: start;
 `;
 
 const ProjectListComponent = styled.div`
@@ -30,7 +31,6 @@ const ImgContainer = styled.section`
     height: 100vh;
     scroll-snap-align: start;
     scroll-behavior: auto;
-    scroll-snap-type: y proximity;
     display: flex;
     justify-content: left;
     margin-left: 8rem;
@@ -105,6 +105,7 @@ const Home = () => {
 
     return (
         <HomeComponent>
+            <StyleSheet/>
             <Header>
                 <TitleHeader />
                 <Sparkles />
@@ -119,7 +120,6 @@ const Home = () => {
                     <Progress className="progress" style={{ scaleX }} />
                 </div>
             </ProjectListComponent>
-            <StyleSheet/>
         </HomeComponent>
     );
 };
