@@ -5,15 +5,16 @@ import { Button } from "@mui/material";
 const FooterContainer = styled.div`
     width: 100%;
     bottom: 0;
-    margin-top: 5rem;
     background: transparent; /* Makes the navbar transparent */
     padding: 15px 20px; /* Adjust padding as needed */
+    padding-top: 5rem;
     z-index: 1000;
     color: white;
-    
+    background: linear-gradient(100deg, black 0%, var(--ah-pink) 100%);
     display: flex;
     justify-content: space-around;
     flex-direction: row;
+    z-index: 1;
 `;
 
 const AttributesCont = styled.div`

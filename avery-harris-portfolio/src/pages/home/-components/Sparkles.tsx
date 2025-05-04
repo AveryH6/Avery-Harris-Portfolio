@@ -5,6 +5,7 @@ import { motion } from "framer-motion"; // Correct import
 const SparkleImg = styled.div`
   position: relative;
   width: 40%; /* Adjust as needed */
+  margin-top: 4rem;
 `;
 
 const PinkSparkle = styled.div`

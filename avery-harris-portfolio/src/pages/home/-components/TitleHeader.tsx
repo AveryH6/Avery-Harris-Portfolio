@@ -3,6 +3,7 @@ import styled from "styled-components";
 const HeadTitle = styled.div`
   font-size: 4rem;
   max-width: 40%;
+  margin-top: 5rem;
 `;
 
 const HeadText = styled.div`

@@ -9,12 +9,14 @@ const HeadTitle = styled.div`
 
 const HeadText = styled.div`
     display: flex;
+    position: fixed;
+    background: linear-gradient(100deg, black 0%, var(--ah-pink) 100%);
     flex-direction: column;
     font-size: 2rem;
-    margin-top: 2.5rem;
+    padding: 4rem;
     max-width: 100%;
-    gap: 2rem;
-    margin: 4rem;
+    z-index: -1;
+    top: 0;
 `;
 
 const AboutTop = styled.div`

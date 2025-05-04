@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import styled from "styled-components";
-import ProjectList from "./-components/ProjectList";
+import { projects } from "../../components/data/projects"; // or wherever you placed it
 import Sparkles from "./-components/Sparkles";
 import TitleHeader from "./-components/TitleHeader";
 
@@ -20,12 +20,16 @@ const Header = styled.div`
 `;
 
 const ProjectListComponent = styled.div`
-    margin-top: 8rem;
+    margin-top: 10rem;
     background-color: var(--ah-darkgrey);
     width: 100%;
     border-top: solid 3px var(--ah-babypink);
-    border-bottom: solid 3px var(--babyyellow);
+    border-bottom: solid 3px var(--ah-babyyellow);
 `;
+
+const ProjectLink = styled.a`
+    color: white;
+`
 
 const ImgContainer = styled.section`
     height: 100vh;
@@ -40,8 +44,9 @@ const ImgContainer = styled.section`
 
 const ImgContainerDiv = styled.div`
     width: 500px;
-    height: 400px;
+    height: 600px;
     overflow: hidden;
+    align-items: center;
 
     @media (max-width: 500px) {
         width: 150px;
@@ -50,11 +55,12 @@ const ImgContainerDiv = styled.div`
 `;
 
 const H2 = styled(motion.h2)`
-    color: var(--ah-babyyellow);
+    color: var(--ah-pink);
     margin: 0;
     font-family: "Azeret Mono", monospace;
     font-size: 50px;
     font-weight: 700;
+    align-items: center;
     letter-spacing: -3px;
     line-height: 1.2;
     position: absolute;
@@ -62,6 +68,14 @@ const H2 = styled(motion.h2)`
     top: calc(50% - 25px);
     left: calc(50% + 300px);
 `;
+
+const H1 = styled.h1`
+    font-size: 2rem;
+`
+
+const P = styled.p`
+    font-size: 1.5rem;
+`
 
 const Progress = styled(motion.div)`
     position: fixed;
@@ -77,7 +91,7 @@ function useParallax(value: MotionValue<number>, distance: number) {
     return useTransform(value, [0, 1], [-distance, distance]);
 }
 
-function Project({ id }: { id: number }) {
+function Project({ id, title, description, githubLink }: { id: number; title: string; description: string; githubLink: string }) {
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({ target: ref });
     const y = useParallax(scrollYProgress, 200);
@@ -85,8 +99,13 @@ function Project({ id }: { id: number }) {
     return (
         <ImgContainer className="img-container">
             <ImgContainerDiv ref={ref}>
-                <img src="/images/med_sparkle.png" alt="" />
-                <ProjectList />
+                <ProjectLink href={githubLink} target="_blank" rel="noopener noreferrer">
+                    <img src="/github-mark/github-mark-white.svg" alt="" />
+                </ProjectLink>
+                <div>
+                    <H1>{title}</H1>
+                    <P>{description}</P>
+                </div>
             </ImgContainerDiv>
             <H2 initial={{ visibility: "hidden" }} animate={{ visibility: "visible" }} style={{ y }}>
                 {`#${id}`}
@@ -112,9 +131,9 @@ const Home = () => {
             </Header>
             <ProjectListComponent>
                 <div id="example">
-                    {[1, 2, 3, 4, 5].map((project) => (
-                        <div key={project}>
-                            <Project id={project} />
+                    {projects.map((project, i) => (
+                        <div key={i}>
+                            <Project id={i} title={project.title} description={project.description} githubLink={project.githubLink} />
                         </div>
                     ))}
                     <Progress className="progress" style={{ scaleX }} />
